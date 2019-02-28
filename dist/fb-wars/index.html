@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FbWars</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css"></head>
+<body>
+<div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+<script>
+
+  window.fbAsyncInit = function() {
+
+    console.log('we in fb init.');
+
+    // FB.init({
+    //   appId            : '1237901679692696',
+    //   autoLogAppEvents : true,
+    //   xfbml            : true,
+    //   version          : 'v3.2'
+    // }, (err, results) => {
+    //   console.error({err,results});
+    // });
+
+    FB.getLoginStatus(function(response) {
+      console.log({'login status':response});
+
+      if(!response.authResponse){
+        console.error("not authResponse prop, see:", response);
+        return;
+      }
+
+      const {accessToken} = response.authResponse;
+
+      FB.api('/me?access_token='+ accessToken, function(response) {
+        console.log('Good to see you, ' + response.name + '.');
+      });
+
+      FB.api(
+        "/me/feed?access_token=" + accessToken,
+        {
+          // "with": "location"
+          limit:50
+        },
+        function (response) {
+          console.log({feed:response});
+          if (response && !response.error) {
+            /* handle the result */
+          }
+        }
+      );
+    });
+
+
+
+    FB.login(function(response) {
+      if (response.authResponse) {
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+          console.log('Good to see you, ' + response.name + '.');
+        });
+
+        FB.api(
+          "/me/feed",
+          {
+            "with": "location"
+          },
+          function (response) {
+            console.log({feed:response});
+            if (response && !response.error) {
+              /* handle the result */
+            }
+          }
+        );
+
+      } else {
+        console.log('User cancelled login or did not fully authorize.');
+      }
+    });
+
+
+  };
+</script>
+
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1237901679692696&autoLogAppEvents=1"></script>
+<!--<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>-->
+
+  <app-root></app-root>
+<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.9d3a8743be9f041e6ba8.js"></script><script type="text/javascript" src="main.6071c68b6f54e8afcb71.js"></script></body>
+</html>
