@@ -19,3 +19,7 @@ https://github.com/angular/flex-layout/wiki/fxLayoutAlign-API
 
 
 https://stackoverflow.com/questions/38209713/how-to-make-a-responsive-nav-bar-using-angular-material-2
+
+
+
+user shares reacts comments mentions rating =(likes+mentions+comments)
