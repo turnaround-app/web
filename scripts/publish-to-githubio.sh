@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+set -e;
 
-ng build --production
+ng build --prod
 
 git add .
 git add -A
