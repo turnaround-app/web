@@ -1,0 +1,15 @@
+https://developers.facebook.com/docs/javascript/quickstart/
+
+
+https://developers.facebook.com/docs/facebook-login/web/#
+
+https://developers.facebook.com/docs/facebook-login/overview/#logindialog
+
+https://medium.com/@rubenvermeulen/running-angular-cli-over-https-with-a-trusted-certificate-4a0d5f92747a
+
+
+https://developers.facebook.com/docs/graph-api/reference/v3.2/post
+
+
+I want my users to be able to see which friends liked (reacted to) their posts the most and which friends liked their post the least.
+This allows users to see who is interacting with them the most, and more importantly allows them to re-engage with friends they have lost touch with for whatever reason.
